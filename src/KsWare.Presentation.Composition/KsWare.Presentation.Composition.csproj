@@ -15,7 +15,7 @@ Supports .Net Framework 4.5+ and .NetCoreApp 3.x
     <Authors>KsWare</Authors>
     <Version>0.0.0</Version>
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
-    <PackageReleaseNotes>https://raw.githubusercontent.com/KsWare/KsWare.Presentation.Composition/master/ChangeLog.md</PackageReleaseNotes>
+    <PackageReleaseNotes>https://raw.githubusercontent.com/KsWare/KsWare.Presentation.Composition/develop/ChangeLog.md</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Properties\KsWare.Presentation.Public.snk</AssemblyOriginatorKeyFile>
     <Product>KsWare Presentation</Product>
