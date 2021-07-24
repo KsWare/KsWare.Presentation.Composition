@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;net45</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net45;net5.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>Copyright © by KsWare. All rights reserved.</Copyright>
@@ -9,10 +9,10 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageProjectUrl>https://github.com/KsWare/KsWare.Presentation.Composition</PackageProjectUrl>
     <Description>Use CompositionBuilder and nothing else. ;-) 
-Supports .Net Framework 4.5+ and .NetCoreApp 3.x
+Supports .Net 5.0, .Net 4.5+ and Core 3.1
 </Description>
     <Company>KsWare</Company>
-    <Authors>KsWare</Authors>
+    <Authors>SchreinerK</Authors>
     <Version>0.0.0</Version>
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
     <PackageReleaseNotes>https://raw.githubusercontent.com/KsWare/KsWare.Presentation.Composition/develop/ChangeLog.md</PackageReleaseNotes>
@@ -41,8 +41,8 @@ Supports .Net Framework 4.5+ and .NetCoreApp 3.x
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommonServiceLocator" Version="2.0.5" />
-    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+    <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
