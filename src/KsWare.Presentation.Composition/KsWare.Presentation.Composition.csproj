@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net45;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net452;netcoreapp3.1;net5.0-windows;net6.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>Copyright © by KsWare. All rights reserved.</Copyright>
@@ -9,7 +9,7 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageProjectUrl>https://github.com/KsWare/KsWare.Presentation.Composition</PackageProjectUrl>
     <Description>Use CompositionBuilder and nothing else. ;-) 
-Supports .Net 5.0, .Net 4.5+ and Core 3.1
+Supports .Net 5.0-6.0, .Net 4.5.2+ and Core 3.1
 </Description>
     <Company>KsWare</Company>
     <Authors>SchreinerK</Authors>
@@ -42,7 +42,10 @@ Supports .Net 5.0, .Net 4.5+ and Core 3.1
 
   <ItemGroup>
     <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
-    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" Condition="'$(TargetFramework)'=='net452'"/>
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" Condition="'$(TargetFramework)'=='netcoreapp3.1'"/>
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" Condition="'$(TargetFramework)'=='net5.0-windows'"/>
+    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0" Condition="'$(TargetFramework)'=='net6.0-windows'"/>
   </ItemGroup>
 
 </Project>
