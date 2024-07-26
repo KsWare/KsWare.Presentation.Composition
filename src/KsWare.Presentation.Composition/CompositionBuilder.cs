@@ -1,21 +1,8 @@
-﻿// ***********************************************************************
-// Assembly         : KsWare.Presentation.Composition
-// Author           : SchreinerK
-// Created          : 01-26-2020
-//
-// Last Modified By : SchreinerK
-// Last Modified On : 01-26-2020
-// ***********************************************************************
-// <copyright file="CompositionBuilder.cs" company="KsWare">
-//     Copyright © by KsWare. All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-
-using System.ComponentModel.Composition.Hosting;
+﻿using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Linq;
 using CommonServiceLocator;
+using KsWare.Presentation.Interfaces;
 
 namespace KsWare.Presentation.Composition {
 
@@ -73,11 +60,15 @@ namespace KsWare.Presentation.Composition {
 		/// <para>If <see cref="Catalog"/> is empty a <see cref="DirectoryCatalog"/> with default directory is added.</para> 
 		/// <para>The container is registered to <see cref="ServiceLocator"/></para></remarks>
 		public CompositionContainer CreateContainer() {
-			if(Catalog==null)
-				Catalog = new AggregateCatalog();
+			if(Catalog==null) Catalog = new AggregateCatalog();
 			if (!Catalog.Catalogs.Any())
 				Catalog.Catalogs.Add(new DirectoryCatalog(Path.GetDirectoryName(typeof(CompositionBuilder).Assembly.Location)));
 			Container = new ExtendedCompositionContainer(Catalog);
+
+			var initializers = Container.GetExportedValues<IModuleInitializer>();
+			foreach (var initializer in initializers) {
+				initializer.RegisterServices(Container);
+			}
 			ServiceLocator.SetLocatorProvider(() => new CompositionServiceLocator(Container));
 			return Container;
 		}

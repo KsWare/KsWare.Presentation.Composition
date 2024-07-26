@@ -1,5 +1,11 @@
-﻿# 0.3
-- [2022-01-05]
+﻿# 0.4 [2024-07-26]
+- TargetFrameworks: net462;net48;net6.0-windows;net8.0-windows
+- CommonServiceLocator 2.0.7
+- System.ComponentModel.Composition 8.0.0
+- reference KsWare.Presentation.Interfaces
+- Importing IModuleInitializer and calling instances
+
+# 0.3 [2022-01-05]
 - TargetFrameworks: net452;netcoreapp3.1;net5.0-windows;net6.0-windows
 
 # 0.2 [2021-07-24]
