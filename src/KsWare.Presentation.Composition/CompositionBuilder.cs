@@ -62,7 +62,7 @@ namespace KsWare.Presentation.Composition {
 		public CompositionContainer CreateContainer() {
 			if(Catalog==null) Catalog = new AggregateCatalog();
 			if (!Catalog.Catalogs.Any())
-				Catalog.Catalogs.Add(new DirectoryCatalog(Path.GetDirectoryName(typeof(CompositionBuilder).Assembly.Location)));
+				Catalog.Catalogs.Add(new FilteredDirectoryCatalog(Path.GetDirectoryName(typeof(CompositionBuilder).Assembly.Location)));
 			Container = new ExtendedCompositionContainer(Catalog);
 
 			var initializers = Container.GetExportedValues<IModuleInitializer>();
